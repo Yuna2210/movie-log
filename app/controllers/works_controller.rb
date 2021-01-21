@@ -49,6 +49,7 @@ class WorksController < ApplicationController
       :relese,
       :main_actor,
       :description,
+      :director_id
     )
   end
 end
