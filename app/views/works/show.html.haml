@@ -1,0 +1,17 @@
+%h1 work details
+%p
+  =@work.title
+  %br
+  =@work.relese
+  %br
+  =@work.main_actor
+  %br
+  =@work.description
+
+
+=link_to "Edit work details",  edit_work_path(@work)
+%br
+=link_to "Delete work", work_path(@work), method: :delete, data: {confirm: "Are you sure?"}
+%br
+
+=link_to "back to work lists", works_path

@@ -1,0 +1,6 @@
+%h1 work list
+-@works.each do |work|
+  %p
+    =link_to work.title, work_path(work)
+    %br
+    =work.relese

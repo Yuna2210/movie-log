@@ -1,0 +1,8 @@
+=bootstrap_form_with model: @work, local: true do |f|
+  =f.text_field :title
+  =f.text_field :relese
+  =f.text_field :main_actor
+  =f.text_area :description
+  =f.submit
+
+=link_to "back to work lists", works_path
