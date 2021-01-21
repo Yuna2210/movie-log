@@ -1,0 +1,12 @@
+%h1 Director details
+%p
+  =@director.name
+  %br
+  =@director.country
+
+=link_to "Edit director details",  edit_director_path(@director)
+%br
+=link_to "Delete director", director_path(@director), method: :delete, data: {confirm: "Are you sure?"}
+%br
+
+=link_to "back to director lists", directors_path

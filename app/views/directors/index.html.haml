@@ -1,0 +1,6 @@
+%h1 Directors list
+-@directors.each do |director|
+  %p
+    =link_to director.name, director_path(director)
+    %br
+    =director.country
