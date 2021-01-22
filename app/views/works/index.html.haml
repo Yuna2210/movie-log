@@ -2,5 +2,9 @@
 -@works.each do |work|
   %p
     =link_to work.title, work_path(work)
-    %br
-    =work.relese
+    = "/"
+    =link_to work.director.name, director_path(work.director)
+    ="(#{work.relese})"
+    =link_to higher_work_path(work) do
+      %i.fa.fa-arrow-up
+    %hr
