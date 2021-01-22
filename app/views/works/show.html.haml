@@ -2,6 +2,8 @@
 %p
   =@work.title
   %br
+  =link_to @work.director.name, director_path(@work.director)
+  %br
   =@work.relese
   %br
   =@work.main_actor
