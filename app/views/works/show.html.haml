@@ -49,4 +49,6 @@
               %p
                 -# %a.readmore{:href => "#"} Visit Website
                 =link_to 'Add new movie', new_work_path, class: 'readmore'
-      / End #main
+                =link_to 'Edit the movie', edit_work_path(@work), class: 'readmore mt-2'
+                =link_to 'Delete the movie', work_path(@work), method: :delete, data: {confirm: "Are you sure?"}, class: 'readmore mt-2'
+        %p=link_to 'Back to home', works_path, class: 'readmore'
