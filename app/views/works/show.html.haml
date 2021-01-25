@@ -24,8 +24,8 @@
     .container
       .row.mb-4.align-items-center
         .col-md-6{"data-aos" => "fade-up"}
-          %h2 Work Single Page
-          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
+          %h2=@work.title
+          %p Release: #{@work.relese}
     .site-section.pb-0
       .container
         .row.align-items-stretch
@@ -33,19 +33,20 @@
             %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
           .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
             .sticky-content
-              %h3.h3 Boxed Water
+              %h3.h3=link_to @work.director.name, director_path(@work.director)
               %p.mb-4
-                %span.text-muted Design
+                %span.text-muted=@work.director.country
               .mb-5
-                %p
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores illo, id recusandae molestias
-                  illum unde pariatur, enim tempora.
-              %h4.h4.mb-3 What I did
+                %p=@work.description
+              %h4.h4.mb-3 #{@work.director.name}'s related movies
               %ul.list-unstyled.list-line.mb-5
-                %li Design
-                %li HTML5/CSS3
-                %li CMS
-                %li Logo
+                -if @work.director.works.size <= 1
+                  %li None
+                -else
+                  -@work.director.works.each do |work|
+                    -if work.id != @work.id
+                      %li=link_to "#{work.title} (#{work.relese})", work_path(work)
               %p
-                %a.readmore{:href => "#"} Visit Website
+                -# %a.readmore{:href => "#"} Visit Website
+                =link_to 'Add new movie', new_work_path, class: 'readmore'
       / End #main
