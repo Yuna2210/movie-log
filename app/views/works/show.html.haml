@@ -1,19 +1,51 @@
-%h1 work details
-%p
-  =@work.title
-  %br
-  =link_to @work.director.name, director_path(@work.director)
-  %br
-  =@work.relese
-  %br
-  =@work.main_actor
-  %br
-  =@work.description
+-# %h1 work details
+-# %p
+-#   =@work.title
+-#   %br
+-#   =link_to @work.director.name, director_path(@work.director)
+-#   %br
+-#   =@work.relese
+-#   %br
+-#   =@work.main_actor
+-#   %br
+-#   =@work.description
+-#
+-#
+-# =link_to "Edit work details",  edit_work_path(@work)
+-# %br
+-# =link_to "Delete work", work_path(@work), method: :delete, data: {confirm: "Are you sure?"}
+-# %br
+-#
+-# =link_to "back to work lists", works_path
 
 
-=link_to "Edit work details",  edit_work_path(@work)
-%br
-=link_to "Delete work", work_path(@work), method: :delete, data: {confirm: "Are you sure?"}
-%br
-
-=link_to "back to work lists", works_path
+%main#main
+  %section.section
+    .container
+      .row.mb-4.align-items-center
+        .col-md-6{"data-aos" => "fade-up"}
+          %h2 Work Single Page
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
+    .site-section.pb-0
+      .container
+        .row.align-items-stretch
+          .col-md-8{"data-aos" => "fade-up"}
+            %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
+          .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+            .sticky-content
+              %h3.h3 Boxed Water
+              %p.mb-4
+                %span.text-muted Design
+              .mb-5
+                %p
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores illo, id recusandae molestias
+                  illum unde pariatur, enim tempora.
+              %h4.h4.mb-3 What I did
+              %ul.list-unstyled.list-line.mb-5
+                %li Design
+                %li HTML5/CSS3
+                %li CMS
+                %li Logo
+              %p
+                %a.readmore{:href => "#"} Visit Website
+      / End #main

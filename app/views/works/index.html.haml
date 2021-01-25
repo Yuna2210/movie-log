@@ -1,52 +1,17 @@
-%h1 work list
--@works.each do |work|
-  %p
-    =link_to work.title, work_path(work)
-    = "/"
-    =link_to work.director.name, director_path(work.director)
-    ="(#{work.relese})"
-    =link_to higher_work_path(work) do
-      %i.fa.fa-arrow-up
-    %hr
+-# %h1 work list
+-# -@works.each do |work|
+-#   %p
+-#     =link_to work.title, work_path(work)
+-#     = "/"
+-#     =link_to work.director.name, director_path(work.director)
+-#     ="(#{work.relese})"
+-#     =link_to higher_work_path(work) do
+-#       %i.fa.fa-arrow-up
+-#     %hr
 
 
 
-    / ======= Navbar =======
-#main-navbar.collapse.navbar-collapse.custom-navmenu
-  .container.py-2.py-md-5
-    .row.align-items-start
-      .col-md-2
-        %ul.custom-menu
-          %li
-            %a{:href => "index.html"} Home
-          %li
-            %a{:href => "about.html"} About Me
-          %li
-            %a{:href => "services.html"} Services
-          %li.active
-            %a{:href => "works.html"} Works
-          %li
-            %a{:href => "contact.html"} Contact
-      .col-md-6.d-none.d-md-block.mr-auto
-        .tweet.d-flex
-          %span.icofont-twitter.text-white.mt-2.mr-3
-          %div
-            %p
-              %em
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
-                %br/
-                %a{:href => "#"} t.co/v82jsk
-      .col-md-4.d-none.d-md-block
-        %h3 Hire Me
-        %p
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiisexplicabo inventore.
-          %br/
-          %a{:href => "#"} myemail@gmail.com
-%nav.navbar.navbar-light.custom-navbar
-  .container
-    %a.navbar-brand{:href => "index.html"} MyPortfolio.
-    %a.burger{"data-target" => "#main-navbar", "data-toggle" => "collapse", :href => "#"}
-      %span
+/ ======= Navbar =======
 %main#main
   / ======= Works Section =======
   %section.section.site-portfolio
@@ -68,37 +33,37 @@
             .work-info
               %h3 Boxed Water
               %span Web
-            %img.img-fluid{:src => "assets/img/img_1.jpg"}/
+            %img.img-fluid{:src => "/img/img_1.jpg"}/
         .item.photography.col-sm-6.col-md-4.col-lg-4.mb-4
           %a.item-wrap.fancybox{:href => "work-single.html"}
             .work-info
               %h3 Build Indoo
               %span Photography
-            %img.img-fluid{:src => "assets/img/img_2.jpg"}/
+            %img.img-fluid{:src => "/img/img_2.jpg"}/
         .item.branding.col-sm-6.col-md-4.col-lg-4.mb-4
           %a.item-wrap.fancybox{:href => "work-single.html"}
             .work-info
               %h3 Cocooil
               %span Branding
-            %img.img-fluid{:src => "assets/img/img_3.jpg"}/
+            %img.img-fluid{:src => "/img/img_3.jpg"}/
         .item.design.col-sm-6.col-md-4.col-lg-4.mb-4
           %a.item-wrap.fancybox{:href => "work-single.html"}
             .work-info
               %h3 Nike Shoe
               %span Design
-            %img.img-fluid{:src => "assets/img/img_4.jpg"}/
+            %img.img-fluid{:src => "/img/img_4.jpg"}/
         .item.photography.col-sm-6.col-md-4.col-lg-4.mb-4
           %a.item-wrap.fancybox{:href => "work-single.html"}
             .work-info
               %h3 Kitchen Sink
               %span Photography
-            %img.img-fluid{:src => "assets/img/img_5.jpg"}/
+            %img.img-fluid{:src => "/img/img_5.jpg"}/
         .item.branding.col-sm-6.col-md-4.col-lg-4.mb-4
           %a.item-wrap.fancybox{:href => "work-single.html"}
             .work-info
               %h3 Amazon
               %span brandingn
-            %img.img-fluid{:src => "assets/img/img_6.jpg"}/
+            %img.img-fluid{:src => "/img/img_6.jpg"}/
   / End  Works Section
   / ======= Testimonials Section =======
   %section.section.pt-0
@@ -106,7 +71,7 @@
       .owl-carousel.testimonial-carousel
         .testimonial-wrap
           .testimonial
-            %img.img-fluid{:alt => "Image", :src => "assets/img/person_1.jpg"}/
+            %img.img-fluid{:alt => "Image", :src => "/img/person_1.jpg"}/
             %blockquote
               %p
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
@@ -114,7 +79,7 @@
             %p — Jean Hicks
         .testimonial-wrap
           .testimonial
-            %img.img-fluid{:alt => "Image", :src => "assets/img/person_2.jpg"}/
+            %img.img-fluid{:alt => "Image", :src => "/img/person_2.jpg"}/
             %blockquote
               %p
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
@@ -123,27 +88,3 @@
   / End Testimonials Section
 / End #main
 / ======= Footer =======
-%footer.footer{:role => "contentinfo"}
-  .container
-    .row
-      .col-sm-6
-        %p.mb-1 © Copyright MyPortfolio. All Rights Reserved
-        .credits
-          /
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=MyPortfolio
-          Designed by
-          %a{:href => "https://bootstrapmade.com/"} BootstrapMade
-      .col-sm-6.social.text-md-right
-        %a{:href => "#"}
-          %span.icofont-twitter
-        %a{:href => "#"}
-          %span.icofont-facebook
-        %a{:href => "#"}
-          %span.icofont-dribbble
-        %a{:href => "#"}
-          %span.icofont-behance
-%a.back-to-top{:href => "#"}
-  %i.icofont-simple-up
