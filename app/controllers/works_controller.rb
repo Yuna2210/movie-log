@@ -14,7 +14,7 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      redirect_to works_path
+      redirect_to works_path, notice: "You are successful to register new movie!"
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class WorksController < ApplicationController
 
   def update
     if @work.update(work_params)
-      redirect_to work_path
+      redirect_to work_path, notice: "This movie details have been updated!"
     else
       render 'edit'
     end
@@ -36,7 +36,7 @@ class WorksController < ApplicationController
 
   def destroy
     @work.destroy
-    redirect_to works_path
+    redirect_to works_path, notice: "This movie has been deleted!"
   end
 
   def move_higher

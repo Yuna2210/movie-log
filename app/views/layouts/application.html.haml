@@ -17,6 +17,10 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   %body
     = render 'header'
+    -if notice
+      .container
+        .alert.alert-success{:role => "alert"}
+          = notice
     = yield
     = render 'footer'
     = javascript_include_tag "application"
