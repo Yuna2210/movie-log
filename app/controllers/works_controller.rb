@@ -56,7 +56,10 @@ class WorksController < ApplicationController
       :relese,
       :main_actor,
       :description,
-      :director_id
+      :director_id,
+      :image,
+      :remove_image,
+      :image_cache
     )
   end
 end
