@@ -1,6 +1,7 @@
 =bootstrap_form_with model: @director, local: true do |f|
   =f.text_field :name
   =f.text_field :country
+  =f.file_field :image
   =f.submit
 
 =link_to "back to director lists", directors_path

@@ -1,17 +1,47 @@
-%h1 Director details
-%p
-  =@director.name
-  %br
-  =@director.country
-  %br
-  -@director.works.each do |work|
-    =link_to work.title,  work_path(work)
+-# %h1 Director details
+-# %p
+-#   =@director.name
+-#   %br
+-#   =@director.country
+-#   %br
+-#   -@director.works.each do |work|
+-#     =link_to work.title,  work_path(work)
+-#
+-# =link_to 'Add new movie', new_work_path(director_id: @director.id)
+-# %br
+-# =link_to "Edit director details",  edit_director_path(@director)
+-# %br
+-# =link_to "Delete director", director_path(@director), method: :delete, data: {confirm: "Are you sure?"}
+-# %br
+-#
+-# =link_to "Back to director lists", directors_path
 
-=link_to 'Add new movie', new_work_path(director_id: @director.id)
-%br
-=link_to "Edit director details",  edit_director_path(@director)
-%br
-=link_to "Delete director", director_path(@director), method: :delete, data: {confirm: "Are you sure?"}
-%br
-
-=link_to "Back to director lists", directors_path
+%main#main
+  %section.section
+    .container
+      .row.mb-4.align-items-center
+        .col-md-6{"data-aos" => "fade-up"}
+          %h2=@director.name
+          %p=@director.country
+    .site-section.pb-0
+      .container
+        .row.align-items-stretch
+          .col-md-8{"data-aos" => "fade-up"}
+            -# %img.img-fluid{:alt => "Image", :src => @work.image_url}/
+            -if @director.image.present?
+              =image_tag @director.image_url, class: 'img-fluid', alt: @director.name
+            -else
+              =image_tag '/img/default_image.png', class: 'img-fluid'
+          .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+            %h4.h4.mb-3 #{@director.name}'s related movies
+            %ul.list-unstyled.list-line
+              -if @director.works.size <= 1
+                %li None
+              -else
+                -@director.works.each do |work|
+                  %li=link_to "#{work.title} (#{work.relese})", work_path(work)
+              %p
+                -# %a.readmore{:href => "#"} Visit Website
+                =link_to 'Add new movie', new_work_path, class: 'readmore'
+                =link_to 'Edit the director', edit_director_path(@director), class: 'readmore mt-2'
+        %p=link_to 'Back to home', works_path, class: 'readmore mt-4'

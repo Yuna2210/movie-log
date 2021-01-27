@@ -1,6 +1,40 @@
-%h1 Directors list
--@directors.each do |director|
-  %p
-    =link_to director.name, director_path(director)
-    %br
-    =director.country
+-# %h1 Directors list
+-# -@directors.each do |director|
+-#   %p
+-#     =link_to director.name, director_path(director)
+-#     %br
+-#     =director.country
+
+/ ======= Navbar =======
+%main#main
+  / ======= Works Section =======
+  %section.section.site-portfolio
+    .container
+      .row.mb-5.align-items-center
+        .col-md-12.col-lg-6.mb-4.mb-lg-0{"data-aos" => "fade-up"}
+          %h2 Directors list
+          %p.mb-0 famous directors!
+        -# .col-md-12.col-lg-6.text-left.text-lg-right{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+        -#   #filters.filters
+        -#     %a.active{"data-filter" => "*", :href => "#"} All
+        -#     %a{"data-filter" => ".web", :href => "#"} Web
+        -#     %a{"data-filter" => ".design", :href => "#"} Design
+        -#     %a{"data-filter" => ".branding", :href => "#"} Branding
+        -#     %a{"data-filter" => ".photography", :href => "#"} Photography
+      #portfolio-grid.row.no-gutter{"data-aos" => "fade-up", "data-aos-delay" => "200"}
+        -@directors.each do |director|
+          .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
+            -# %a.item-wrap.fancybox{:href => "work-single.html"}
+            =link_to director_path(director), class: 'item-wrap fancybox' do
+              .work-info
+                %h3=director.name
+                %span=director.country
+              -# %img.img-fluid{:src => "/img/img_1.jpg"}/
+              -if director.image.present?
+                =image_tag director.image_url(:thumb), class: 'img-fluid'
+              -else
+                =image_tag '/img/default_image.png', class: 'img-fluid'
+      =link_to 'Add new director', new_director_path, class: 'readmore'
+  / End  Works Section
+/ End #main
+/ ======= Footer =======
