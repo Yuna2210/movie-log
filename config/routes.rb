@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :works do
     get 'higher' => 'works#move_higher', as: 'higher', on: :member
   end
+  resource :profile
 end
