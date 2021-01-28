@@ -20,7 +20,12 @@
         .col-md-12.col-lg-6.mb-4.mb-lg-0{"data-aos" => "fade-up"}
           %h2 Movie list
           %p.mb-0 Find your favourite movies!
-        -# .col-md-12.col-lg-6.text-left.text-lg-right{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+        .col-md-12.col-lg-6.text-left.text-lg-right
+          = search_form_for @q do |f|
+            = f.label :title, "Keyword"
+            = f.search_field :title_or_director_name_cont
+            = f.submit "Search"
+
         -#   #filters.filters
         -#     %a.active{"data-filter" => "*", :href => "#"} All
         -#     %a{"data-filter" => ".web", :href => "#"} Web

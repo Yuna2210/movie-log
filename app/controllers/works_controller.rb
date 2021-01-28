@@ -3,7 +3,9 @@ class WorksController < ApplicationController
 
   def index
     # @works = Work.all.by_position
-    @works = Work.all.by_position.page(params[:page]).per(6)
+    # @works = Work.all.by_position.page(params[:page]).per(6)
+    @q = Work.by_position.ransack(params[:q])
+    @works = @q.result(distinct: true).page(params[:page]).per(9)
   end
 
   def new
