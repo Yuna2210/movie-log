@@ -40,6 +40,7 @@
                 =image_tag work.image_url(:thumb), class: 'img-fluid'
               -else
                 =image_tag '/img/default_image.png', class: 'img-fluid'
+      =paginate @works
       =link_to 'Add new movie', new_work_path, class: 'readmore'
   / End  Works Section
 / End #main
