@@ -21,6 +21,10 @@
       .container
         .alert.alert-success{:role => "alert"}
           = notice
+    -if alert
+      .container
+        .alert.alert-danger{:role => "alert"}
+          =alert
     = yield
     = render 'footer'
     = javascript_include_tag "application"

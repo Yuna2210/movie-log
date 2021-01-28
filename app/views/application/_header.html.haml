@@ -5,10 +5,19 @@
         %ul.custom-menu
           %li
             -# %a{:href => "index.html"}
-            %p=link_to 'Works', works_path
+            =link_to 'Works', works_path
           %li
             -# %a{:href => "about.html"} About Me
-            %p=link_to 'Directors', directors_path
+            =link_to 'Directors', directors_path
+          -if user_signed_in?
+            %li
+              =link_to 'sign out', destroy_user_session_path
+          -else
+            %li
+              =link_to 'sign up', new_user_registration_path
+            %li
+              =link_to 'sign in', new_user_session_path
+
       .col-md-6.d-none.d-md-block.mr-auto
         .tweet.d-flex
           %span.icofont-twitter.text-white.mt-2.mr-3
