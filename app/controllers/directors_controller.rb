@@ -2,7 +2,7 @@ class DirectorsController < ApplicationController
   before_action :set_director, only: [:edit, :update, :show, :destroy]
 
   def index
-    @directors = Director.all
+    @directors = Director.all.page(params[:page]).per(3)
   end
 
   def new
