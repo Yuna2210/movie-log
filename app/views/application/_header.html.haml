@@ -1,7 +1,7 @@
 #main-navbar.collapse.navbar-collapse.custom-navmenu
   .container.py-2.py-md-5
     .row.align-items-start
-      .col-md-2
+      .col-md-4
         %ul.custom-menu
           %li
             -# %a{:href => "index.html"}
@@ -10,6 +10,11 @@
             -# %a{:href => "about.html"} About Me
             =link_to 'Directors', directors_path
           -if user_signed_in?
+            %li
+              -if current_user.profile.persisted?
+                =link_to 'Edit your profile', edit_profile_path
+              -else
+                =link_to 'Create your profile', new_profile_path
             %li
               =link_to 'sign out', destroy_user_session_path
           -else

@@ -1,0 +1,15 @@
+=bootstrap_form_with model: @profile, url: profile_path, local: true do |f|
+  =f.text_field :first_name
+  =f.text_field :last_name
+  =f.text_field :gender
+  =f.text_area :introducer
+  =f.file_field :image
+  =f.hidden_field :image_cache
+  -if @profile.image?
+    .m-t-5
+      =image_tag @profile.image_url
+      .checkbox.checkbox-primary.m-t-5
+        =f.check_box_without_bootstrap :remove_image
+        =f.label :remove_image, 'Image Delete'
+  =f.submit class: 'readmore'
+=link_to "back to home", works_path, class: 'readmore mt-2'
