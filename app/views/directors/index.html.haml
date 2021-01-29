@@ -40,7 +40,8 @@
               -else
                 =image_tag '/img/default_image.png', class: 'img-fluid'
       =paginate @directors
-      =link_to 'Add new director', new_director_path, class: 'readmore'
+      -if user_signed_in?
+        =link_to 'Add new director', new_director_path, class: 'readmore'
   / End  Works Section
 / End #main
 / ======= Footer =======

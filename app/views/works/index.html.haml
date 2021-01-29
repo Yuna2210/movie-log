@@ -46,7 +46,5 @@
               -else
                 =image_tag '/img/default_image.png', class: 'img-fluid'
       =paginate @works
-      =link_to 'Add new movie', new_work_path, class: 'readmore'
-  / End  Works Section
-/ End #main
-/ ======= Footer =======
+      -if user_signed_in?
+        =link_to 'Add new movie', new_work_path, class: 'readmore'
