@@ -26,6 +26,9 @@
         .col-md-6{"data-aos" => "fade-up"}
           %h2=@work.title
           %p Release: #{@work.relese}
+          -@work.tags.each do |tag|
+            =link_to tag_path(tag) do
+              %span.badge.badge-pill.badge-dark=tag.name
     .site-section.pb-0
       .container
         .row.align-items-stretch

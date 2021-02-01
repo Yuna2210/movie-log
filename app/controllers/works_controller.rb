@@ -63,7 +63,8 @@ class WorksController < ApplicationController
       :director_id,
       :image,
       :remove_image,
-      :image_cache
+      :image_cache,
+      tag_ids: []
     )
   end
 end

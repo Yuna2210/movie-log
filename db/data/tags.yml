@@ -1,0 +1,20 @@
+action:
+  name: Action
+anime:
+  name: Anime
+japan:
+  name: Japan
+united_states:
+  name: United states
+star_wars:
+  name: Star Wars
+thriller:
+  name: Thriller
+drama:
+  name: Drama
+academy_awards:
+  name: Academy Awards
+peoples_choice_award:
+  name: People's Choice Award
+love_romance:
+  name: Love romance

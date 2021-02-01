@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Tag::SEEDS.each do |tag_key, attrs|
+  tag = Tag.find_or_create_by(tag_key: tag_key)
+  tag.attributes = attrs
+  tag.save
+end
