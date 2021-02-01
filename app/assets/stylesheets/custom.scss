@@ -1,11 +1,12 @@
-html {
+html,body {
   height: 100%;
 }
+
 body {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-// .content {
-//   flex: 1;
-//   min-height: 100vh;
-// }
+#contents {
+  flex: 1;
+}
