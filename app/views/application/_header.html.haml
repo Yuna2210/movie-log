@@ -1,7 +1,7 @@
 #main-navbar.collapse.navbar-collapse.custom-navmenu
   .container.py-2.py-md-5
     .row.align-items-start
-      .col-md-4
+      .col-md-6
         %ul.custom-menu
           %li
             -# %a{:href => "index.html"}
@@ -11,7 +11,7 @@
             =link_to 'Directors', directors_path
           -if user_signed_in?
             %li
-              -if current_user.profile.persisted?
+              -if current_user.profile&.persisted?
                 =link_to 'Edit your profile', edit_profile_path
               -else
                 =link_to 'Create your profile', new_profile_path
@@ -32,12 +32,34 @@
       -#           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
       -#           %br/
       -#           %a{:href => "#"} t.co/v82jsk
-      -# .col-md-4.d-none.d-md-block
-      -#   %h3 Hire Me
-      -#   %p
-      -#     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiisexplicabo inventore.
-      -#     %br/
-      -#     %a{:href => "#"} myemail@gmail.com
+      -# -if user_signed_in?
+      -#   .col-md-6.d-none.d-md-block
+      -#     -if current_user.profile&.persisted?
+      -#       %h3
+      -#         ="#{current_user.profile.first_name} #{current_user.profile.last_name}"
+      -#       %p
+      -#         =image_tag current_user.profile.image_url
+      -#         =current_user.profile.introducer
+      -#     -else
+      -#       %p
+      -#         ="Welcome to our website!"
+      -#         =link_to 'Create your profile', new_profile_path
+      -if user_signed_in?
+        .col-md-6.d-none.d-md-block
+          .testimonial-wrap
+            .testimonial
+              -if current_user.profile&.persisted?
+                -# %img.img-fluid{:alt => "Image", :src => "assets/img/person_1.jpg"}/
+                =image_tag current_user.profile.image_url, class: 'img-fluid'
+                %blockquote
+                  %p=current_user.profile.introducer
+                %p="#{current_user.profile.first_name} #{current_user.profile.last_name}"
+              -else
+                %p
+                  ="Welcome to our website!"
+                  =link_to 'Create your profile', new_profile_path
+
+
 %nav.navbar.navbar-light.custom-navbar
   .container
     -# %a.navbar-brand{:href => "index.html"} MyPortfolio.
