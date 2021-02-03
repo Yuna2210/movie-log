@@ -88,6 +88,21 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    user_name: 'apikey',
+    password: Rails.application.credentials.sendgrid_api_key,
+    domain: 'movielog.work',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+  # Site Settings
+  config.x.site.title = '[test]movielog'
+  config.x.site.email = 'support@movielog.work'
+  config.x.site.admin_email = 'loxoo_1@yahoo.co.jp'
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector

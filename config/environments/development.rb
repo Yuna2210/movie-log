@@ -61,4 +61,19 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    user_name: 'apikey',
+    password: Rails.application.credentials.sendgrid_api_key,
+    domain: 'movielog.work',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+  # Site Settings
+  config.x.site.title = '[test]movielog'
+  config.x.site.email = 'support@movielog.work'
+  config.x.site.admin_email = 'loxoo_1@yahoo.co.jp'
 end

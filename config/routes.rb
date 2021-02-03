@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :tags, only: [:show]
   resource :profile
+  resources :contacts, only: [:new, :create]
 end

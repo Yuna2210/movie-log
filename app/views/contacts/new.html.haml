@@ -1,0 +1,56 @@
+%section.section.pb-5
+  .container
+    .row.mb-5.align-items-end
+      .col-md-6{"data-aos" => "fade-up"}
+        %h2 Contact
+        %p.mb-0
+          Feel free to contact us!
+    .row
+      .col-md-6.mb-5.mb-md-0{"data-aos" => "fade-up"}
+        =bootstrap_form_for @contact, local: true do |f|
+          .row
+            .col-md-6
+              =f.text_field :name
+            .col-md-6
+              =f.email_field :email
+            .col-md-12
+              =f.text_field :subject
+            .col-md-12
+              =f.text_area :message
+            =f.submit "Send Message", class: 'readmore d-block w-100'
+
+        -# %form.php-email-form{:action => "forms/contact.php", :method => "post", :role => "form"}
+        -#   .row
+        -#     .col-md-6.form-group
+        -#       %label{:for => "name"} Name
+        -#       %input#name.form-control{"data-msg" => "Please enter at least 4 chars", "data-rule" => "minlen:4", :name => "name", :type => "text"}/
+        -#       .validate
+        -#     .col-md-6.form-group
+        -#       %label{:for => "name"} Email
+        -#       %input#email.form-control{"data-msg" => "Please enter a valid email", "data-rule" => "email", :name => "email", :type => "email"}/
+        -#       .validate
+        -#     .col-md-12.form-group
+        -#       %label{:for => "name"} Subject
+        -#       %input#subject.form-control{"data-msg" => "Please enter at least 8 chars of subject", "data-rule" => "minlen:4", :name => "subject", :type => "text"}/
+        -#       .validate
+        -#     .col-md-12.form-group
+        -#       %label{:for => "name"} Message
+        -#       %textarea.form-control{:cols => "30", "data-msg" => "Please write something for us", "data-rule" => "required", :name => "message", :rows => "10"}
+        -#       .validate
+        -#     .col-md-12.mb-3
+        -#       .loading Loading
+        -#       .error-message
+        -#       .sent-message Your message has been sent. Thank you!
+        -#     .col-md-6.form-group
+        -#       %input.readmore.d-block.w-100{:type => "submit", :value => "Send Message"}/
+      .col-md-4.ml-auto.order-2{"data-aos" => "fade-up"}
+        %ul.list-unstyled
+          %li.mb-3
+            %strong.d-block.mb-1 Address
+            %span 203 Fake St. Mountain View, San Francisco, California, USA
+          %li.mb-3
+            %strong.d-block.mb-1 Phone
+            %span +1 232 3235 324
+          %li.mb-3
+            %strong.d-block.mb-1 Email
+            %span youremail@domain.com
