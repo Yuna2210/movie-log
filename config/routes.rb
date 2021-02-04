@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   resources :tags, only: [:show]
   resource :profile
   resources :contacts, only: [:new, :create]
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

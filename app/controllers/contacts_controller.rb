@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.valid?
-      ContactMailer.send_for_admin(@contact).deliver
+      ContactMailer.send_for_admin(@contact).deliver_now
       redirect_to root_path, notice: "Your message has been sent. Thank you!"
     else
       render 'new'
