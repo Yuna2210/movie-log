@@ -10,7 +10,7 @@
             -# %a{:href => "about.html"} About Me
             =link_to 'Directors', directors_path
           %li
-            =link_to 'Contact', new_contact_path 
+            =link_to 'Contact', new_contact_path
           -if user_signed_in?
             %li
               -if current_user.profile&.persisted?
@@ -55,7 +55,7 @@
                 =image_tag current_user.profile.image_url, class: 'img-fluid'
                 %blockquote
                   %p=current_user.profile.introducer
-                %p="#{current_user.profile.first_name} #{current_user.profile.last_name}"
+                %p=current_user.display_name
               -else
                 %p
                   ="Welcome to our website!"

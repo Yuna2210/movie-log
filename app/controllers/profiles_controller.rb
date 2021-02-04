@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
-      redirect_to profile_path, notice: "Your profile has been updated!"
+      redirect_to root_path, notice: "Your profile has been updated!"
     else
       render 'edit'
     end
@@ -38,6 +38,7 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(
       :first_name,
       :last_name,
+      :nickname,
       :gender,
       :introducer,
       :image,

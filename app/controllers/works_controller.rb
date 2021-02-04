@@ -16,7 +16,8 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new(work_params)
+    @work = Work.new(work_params.merge(user_id: current_user.id))
+    # @work.user_id = current_user.id
     if @work.save
       redirect_to works_path, notice: "You are successful to register new movie!"
     else
