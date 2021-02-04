@@ -6,7 +6,7 @@
         %p.mb-0
           Feel free to contact us!
     .row
-      .col-md-6.mb-5.mb-md-0{"data-aos" => "fade-up"}
+      .col-md-12.mb-5.mb-md-0{"data-aos" => "fade-up"}
         =bootstrap_form_for @contact, local: true do |f|
           .row
             .col-md-6
@@ -17,7 +17,7 @@
               =f.text_field :subject
             .col-md-12
               =f.text_area :message
-            =f.submit "Send Message", class: 'readmore d-block w-100'
+          =f.submit "Send Message", class: 'readmore d-block w-90'
 
         -# %form.php-email-form{:action => "forms/contact.php", :method => "post", :role => "form"}
         -#   .row
@@ -43,14 +43,14 @@
         -#       .sent-message Your message has been sent. Thank you!
         -#     .col-md-6.form-group
         -#       %input.readmore.d-block.w-100{:type => "submit", :value => "Send Message"}/
-      .col-md-4.ml-auto.order-2{"data-aos" => "fade-up"}
-        %ul.list-unstyled
-          %li.mb-3
-            %strong.d-block.mb-1 Address
-            %span 203 Fake St. Mountain View, San Francisco, California, USA
-          %li.mb-3
-            %strong.d-block.mb-1 Phone
-            %span +1 232 3235 324
-          %li.mb-3
-            %strong.d-block.mb-1 Email
-            %span youremail@domain.com
+      -# .col-md-4.ml-auto.order-2{"data-aos" => "fade-up"}
+      -#   %ul.list-unstyled
+      -#     %li.mb-3
+      -#       %strong.d-block.mb-1 Address
+      -#       %span 203 Fake St. Mountain View, San Francisco, California, USA
+      -#     %li.mb-3
+      -#       %strong.d-block.mb-1 Phone
+      -#       %span +1 232 3235 324
+      -#     %li.mb-3
+      -#       %strong.d-block.mb-1 Email
+      -#       %span youremail@domain.com
