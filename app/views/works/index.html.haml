@@ -42,9 +42,9 @@
                 %span=work.relese
               -# %img.img-fluid{:src => "/img/img_1.jpg"}/
               -if work.image.present?
-                =image_tag work.image_url(:thumb), class: 'img-fluid'
+                =image_tag work.image_url(:thumb), class: 'img-fluid work-thumb'
               -else
-                =image_tag '/img/default_image.png', class: 'img-fluid'
+                =image_tag '/img/default_image.png', class: 'img-fluid work-thumb'
       =paginate @works
       -if user_signed_in?
         =link_to 'Add new movie', new_work_path, class: 'readmore'

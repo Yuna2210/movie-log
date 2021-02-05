@@ -12,11 +12,63 @@ body {
   flex: 1;
 }
 
-.testimonial-wrap {
+.testimonial-wrap.header {
   background: none;
   padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: 'Abel', sans-serif;
+}
+
+.img-fluid {
+  @media screen and (max-width: 375px) {
+    max-width: 70%;
+  }
+}
+
+.mypage {
+  .profile {
+    padding: 30px;
+    .testimonial-wrap {
+      padding-bottom: 50px;
+      .testimonial {
+        text-align: left;
+        img {
+          margin: 0 0 30px 0;
+        }
+        p.profile_name {
+          font-size: 1.25rem;
+          font-weight: bold;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .movie-list {
+    padding: 30px;
+    .work-item {
+      display: flex;
+      padding: 20px 0;
+      a.work-item-image {
+        display: block;
+        width: 130px;
+        flex-shrink: 0;
+      }
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+      .work-info {
+        padding: 0 10px;
+        .work-title {
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+        .readmore {
+          padding: 5px 15px;
+        }
+      }
+    }
+  }
 }

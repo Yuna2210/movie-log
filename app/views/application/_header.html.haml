@@ -13,10 +13,7 @@
             =link_to 'Contact', new_contact_path
           -if user_signed_in?
             %li
-              -if current_user.profile&.persisted?
-                =link_to 'Edit your profile', edit_profile_path
-              -else
-                =link_to 'Create your profile', new_profile_path
+              =link_to 'My page', mypage_path
             %li
               =link_to 'sign out', destroy_user_session_path
           -else
@@ -48,7 +45,7 @@
       -#         =link_to 'Create your profile', new_profile_path
       -if user_signed_in?
         .col-md-6.d-none.d-md-block
-          .testimonial-wrap
+          .testimonial-wrap.header
             .testimonial
               -if current_user.profile&.persisted?
                 -# %img.img-fluid{:alt => "Image", :src => "assets/img/person_1.jpg"}/

@@ -1,0 +1,46 @@
+-# %h2 Mypage
+-#
+-#               -if current_user.profile&.persisted?
+-#                 =link_to 'My page', mypage_path
+-#               -else
+-#                 =link_to 'Create your profile', new_profile_path
+
+%main#main.mypage
+  %section.section
+    .container
+      .row.mb-4.align-items-center
+        .col-md-6{"data-aos" => "fade-up"}
+          %h2 Mypage
+          %p Feel free to describe yourself!
+
+      .row
+        .col-md-6.profile
+          %h3.h3.mb-2 My profile
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
+          .owl-carousel.testimonial-carousel
+            .testimonial-wrap
+              .testimonial
+                =image_tag current_user.profile.image_url, class: 'img-fluid'
+                %blockquote
+                  %p
+                    =current_user.profile.introducer
+                %p.profile_name
+                  ="#{current_user.profile.first_name} #{current_user.profile.last_name}"
+                  -if current_user.profile.nickname.present?
+                    ="(#{current_user.profile.nickname})"
+                %p
+                  =current_user.profile.gender
+        .col-md-6.movie-list
+          %h3.h3.mb-2 Registered movie list
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
+          -current_user.works.each do |work|
+            .work-item
+              =link_to work_path(work), class: 'work-item-image' do
+                =image_tag work.image_url(:thumb)
+              .work-info
+                .work-title=link_to work.title, work_path(work)
+                %p
+                  =link_to work.director.name, director_path(work.director)
+                  %br
+                  ="Registered date: #{work.created_at.strftime("%F")}"
+                .readmore=link_to 'Edit', edit_work_path(work)
