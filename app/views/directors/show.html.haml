@@ -35,7 +35,7 @@
           .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
             %h4.h4.mb-3 #{@director.name}'s related movies
             %ul.list-unstyled.list-line
-              -if @director.works.size <= 1
+              -if @director.works.size < 1
                 %li None
               -else
                 -@director.works.each do |work|

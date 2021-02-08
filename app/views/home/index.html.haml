@@ -1,2 +1,13 @@
-%h1 movie-log
-%p
+%main#main
+  %section.section
+    .container
+      .row.mb-4.align-items-center
+        .col-md-6{"data-aos" => "fade-up"}
+          %h2 About us
+          %p
+            movie-log – the Movie Review website created by Yuna in 2021 is just started recently. You can add movies, directors and your information.
+          %br
+            Also, you can share your experience with others and see interenting movies. Hope you can find nice one.
+          %br
+            Feel free if you have any questions or good idea for movie-log!
+          =link_to 'contact us', new_contact_path, class: 'readmore mt-2'
