@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def display_name
-    if profile.nil?
+    unless profile.present?
       "Unknown"
     else
       profile.nickname.present? ? profile.nickname : profile.first_name
