@@ -11,14 +11,16 @@
       .row.mb-4.align-items-center
         .col-md-6{"data-aos" => "fade-up"}
           %h2 Mypage
-          %p Thank you for registered our website. We are able to run this owe your support.
-          %p Please feel free to describe yourself and share your experience.
+          %p
+            Thank you for registered our website. We are able to run this owe your support.
+            Please feel free to describe yourself and share your experience.
 
       .row
         .col-md-6.profile
           %h3.h3.mb-2 My profile
-          %p Let's introduce you to others :)
-          %p We are pleased to provide this place to log your movie experience and enjoy together.
+          %p 
+            Let's introduce you to others :)
+            We are pleased to provide this place to log your movie experience and enjoy together.
           .owl-carousel.testimonial-carousel
             .testimonial-wrap
               .testimonial
@@ -35,14 +37,17 @@
                     =current_user.profile.gender
                     .readmore=link_to 'Edit', edit_profile_path
                 -else
-                  %p Would you like to make your profile?
-                  %p You can share your information to others.
+                  %p 
+                    Would you like to make your profile?
+                    %br
+                    You can share your information to others.
                   .readmore=link_to 'Create your profile', new_profile_path
 
         .col-md-6.movie-list
           %h3.h3.mb-2 Registered movie list
-          %p We appriciate you to be a part of our members and registered movies.
-          %p You can edit and see what movie you logged. No movie no life.
+          %p 
+            We appriciate you to be a part of our members and registered movies.
+            You can edit and see what movie you logged. No movie no life.
           -current_user.works.each do |work|
             .work-item
               =link_to work_path(work), class: 'work-item-image' do
